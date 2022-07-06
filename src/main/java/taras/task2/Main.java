@@ -3,6 +3,7 @@ package taras.task2;
 import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import javax.xml.stream.XMLStreamException;
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -33,6 +34,10 @@ public class Main {
         //3) Serialization
         String myXmlFile = xmlMapper.writeValueAsString(myXmlMapper);
         System.out.println(myXmlFile);
+
+        //Создаю новый xml файл в пакете "taras"
+        xmlMapper.writeValue(new File(resourcesFolder+separator+"myXmlFile.xml"), myXmlMapper);
+        System.out.println("Новый файл xml создан в пакете \"taras\"");
 
     }
 }

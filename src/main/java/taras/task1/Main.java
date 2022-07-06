@@ -1,6 +1,8 @@
 package taras.task1;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -53,6 +55,10 @@ public class Main {
         //Serialization
         String myJson = objectMapper.writeValueAsString(myLearnHTML);
         System.out.println(myJson);
+
+        //Создаю новый json файл в пакете "taras"
+        objectMapper.writeValue(new File(resourcesFolder+separator+"myJsonFile.json"), myLearnHTML);
+        System.out.println("Новый файл json создан в пакете \"taras\"");
 
     }
 }
